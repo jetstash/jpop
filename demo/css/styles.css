@@ -3,10 +3,28 @@
 }
 
 body {
-  overflow: hidden;
+  overflow-x: hidden;
   background-color: #fcf8f7;
 }
 
 h1 {
   text-align: center;
+}
+
+/* Styles for the jpop banner */
+.jpop-banner {
+  overflow: hidden;
+  height: 100px;
+  background-color: white;
+}
+.jpop-left {
+  float: left;
+  width: 50%;
+}
+.jpop-right {
+  float:right;
+  width: 50%;
+}
+.jpop-form {
+  margin: 0px;
 }
