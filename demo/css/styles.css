@@ -1,0 +1,12 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  overflow: hidden;
+  background-color: #fcf8f7;
+}
+
+h1 {
+  text-align: center;
+}
