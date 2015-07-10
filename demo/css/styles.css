@@ -23,9 +23,28 @@ h1 {
   font-family: 'Montserrat', sans-serif;
 }
 
+h1.title {
+  font-size: 35px;
+  margin: 40px 0;
+  font-family: "HelveticaNeue-CondensedBold", "proxima-nova-extra-condensed", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-bottom: none;
+  text-align: center;
+  color: #d84207;
+}
+
 h2 {
   font-size: 18px;
   font-family: 'Montserrat', sans-serif;
+}
+
+h3 {
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  margin: 10px 0 0 0;
+  padding: 0;
 }
 
 p {
@@ -112,13 +131,17 @@ td.mono {
 
 .jpop-banner {
   overflow: hidden;
-  height: 100px;
-  background-color: white;
+  height: auto;
+  background-color: #d84207;
+  color: #fff;
+  padding: 20px;
 }
 
 .jpop-left {
   float: left;
   width: 50%;
+  text-align: right;
+  padding-right: 3%;
 }
 
 .jpop-right {
@@ -128,4 +151,102 @@ td.mono {
 
 .jpop-form {
   margin: 0px;
+}
+
+/* Forms and Inputs */
+
+input.form-control {
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  color: #d84207;
+}
+
+input.form-control:focus, input.form-control:active {
+  border: none;
+  outline: 0;
+}
+
+button[type="submit"] {
+  background-color: #a73305;
+  border-radius: 0;
+  border: none;
+  color: #fff;
+  height: 34px;
+}
+
+button[type="submit"]:hover, button[type="submit"]:active {
+  color: #d84207;
+  background-color: #fff;
+}
+
+/* Animations */
+
+.animated {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes slideInDown {
+  0% {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInDown {
+  0% {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInDown {
+  -webkit-animation-name: slideInDown;
+  animation-name: slideInDown;
+}
+
+@-webkit-keyframes slideInUp {
+  0% {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInUp {
+  0% {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInUp {
+  -webkit-animation-name: slideInUp;
+  animation-name: slideInUp;
 }
