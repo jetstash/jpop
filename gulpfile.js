@@ -1,12 +1,14 @@
-var gulp   = require('gulp');
-var watch  = require('gulp-watch');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
+var gulp    = require('gulp'),
+    gutil   = require('gulp-util'),
+    watch   = require('gulp-watch'),
+    concat  = require('gulp-concat'),
+    uglify  = require('gulp-uglify');
 
 gulp.task('uglify', function() {
   return gulp.src('src/*.js')
     .pipe(concat('jpop.min.js'))
     .pipe(uglify())
+    .on('error', printError)
     .pipe(gulp.dest('./'))
     .pipe(gulp.dest('demo/js'));
 });
@@ -16,3 +18,8 @@ gulp.task('watch', function() {
 });
 
 gulp.task('default', ['uglify', 'watch']);
+
+function printError(error) {
+  console.log(error.toString());
+  this.emit('end');
+}
