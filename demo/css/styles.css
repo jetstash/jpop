@@ -87,11 +87,47 @@ td.mono {
 .readme {
   background-color: #ffffff;
   border: 1px solid #ccc;
+  margin-bottom: 20px;
   padding: 10px 40px 40px 40px;
 }
 
-.example {
-  margin: 20px 0;
+.readme .row {
+  width: 100%;
+  margin: 0 auto;
+}
+
+pre {
+  background-color: #ede9e0;
+  border: 1px solid #ccc;
+  border-radius: 0px;
+}
+
+.demo, .options {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.form-group {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+button.view-demo {
+  width: 100px;
+  height: 50px;
+  margin: 35px 0 0 0;
+  border: none;
+  border-radius: 0px;
+  color: #ffffff;
+  background-color: #d84207;
+}
+
+button.view-demo:hover, button.view-demo:focus, button.view-demo:active {
+  color: #ffffff;
+}
+
+.readme .example {
+  margin: 20px auto;
 }
 
 .box {
@@ -137,6 +173,20 @@ td.mono {
 
 .table > thead > tr > th {
   border-bottom: 1px solid #dddddd;
+}
+
+footer {
+  width: 100%;
+  margin: 15px auto;
+  text-align: center;
+}
+
+a.copyright {
+  color: #d84207;
+}
+
+a.copyright:focus, a.copyright:hover, a.copyright:active {
+  text-decoration: under
 }
 
 /* Styles for the jpop-form */

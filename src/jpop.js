@@ -25,6 +25,7 @@
       incorrectForm : "You must pass your form id as an option",
       generalError  : "Something went wrong, please refresh and try again."
     };
+    console.log(options);
   }
 
   jPop.prototype.run = function() {
@@ -171,7 +172,7 @@
     return [
       '<form id="jpop" role="form" class="jpop-form">',
         '<label class="sr-only" for="jpop-email">Email</label>',
-        '<input type="email" id="jpop-email" name="email" placeholder="email" required>',
+        '<input type="email" id="jpop-email" class="jpop-input" name="email" placeholder="email" required>',
         '<div id="jpop-error" class="jpop-error"></div>',
         '<button class="jpop-btn btn-default" type="submit">' + this.options.button + '</button>',
       '</form>'

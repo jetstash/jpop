@@ -21,6 +21,47 @@
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
         <div class="readme">
+          <h1>Usage</h1>
+          <div class="row usage">
+            <pre>$('body').jpop(options);</pre>
+          </div>
+          <h1>Demo</h1>
+          <div class="row demo">
+            <form id="demo" role="form" class="options form-inline">
+              <div class="form-group">
+                <label for="type">Type</label>
+                <select class="form-control" id="type" name="type">
+                  <option value="popover">Popover</option>
+                  <option value="banner">Banner</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="position">Position</label>
+                <select class="form-control" id="position" name="position">
+                  <option value="top">top</option>
+                  <option value="bottom">Bottom</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="delay">Delay</label>
+                <select class="form-control" id="delay" name="delay">
+                  <option value="500">500ms</option>
+                  <option value="1000">1000ms</option>
+                  <option value="2000">2000ms</option>
+                  <option value="4000">4000ms</option>
+                  <option value="8000">8000ms</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="scroll">On Scroll</label>
+                <select class="form-control" id="scroll" name="scroll">
+                  <option value="true">True</option>
+                  <option value="false">False</option>
+                </select>
+              </div>
+            </form>
+            <button class="btn view-demo" id="view-demo">View Demo</button>
+          </div>
           <h1>Positioning</h1>
           <div class="row example">
             <div class="col-sm-3 no-left-padding">
@@ -116,7 +157,7 @@
           <div class="row">
             <div class="col-sm-12">
               <h4>Global Classes</h4>
-              <pre>.jpop-cta {} // Call to Action title<br>.jpop-form {} // Form container<br>#jpop-email {} // Input email field<br>.jpop-btn {} // Submit button<br>.jpop-error {} // Error message</pre>
+              <pre>.jpop-cta {} // Call to Action title<br>.jpop-form {} // Form container<br>.jpop-input {} // Input email field<br>.jpop-btn {} // Submit button<br>.jpop-error {} // Error message</pre>
             </div>
           </div>
           <div class="row">
@@ -137,17 +178,25 @@
   </div>
 
   <script type="text/javascript">
-    $('body').jpop({
-      form:     'm4CnDEOtbLPn',
-      type:     'banner',
-      position: 'top',
-      style:    false,
-      show:     false,
-      delay:    1000,
-      scroll:   false,
-      button:   "Subscribe"
+    $('#view-demo').on('click', function() {
+      $('#jpop-banner, #jpop-popover').remove();
+      $('body').unbind('jpop');
+
+      $('body').jpop({
+        form     : 'yMLrWm89FHK7',
+        type     : $('#type').val(),
+        position : $('#position').val(),
+        style    : false,
+        show     : false,
+        delay    : parseInt($('#delay').val(), 10),
+        scroll   : $('#scroll').val() === "true" ? true : false,
+        button   : "Subscribe"
+      });
     });
   </script>
 
+  <footer>
+    &copy; 2015 <a class="copyright" href="https://www.jetstash.com">Jetstash LLC</a>
+  </footer>
 </body>
 </html>
