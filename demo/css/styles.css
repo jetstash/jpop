@@ -4,11 +4,6 @@ body {
   color: #594a35;
 }
 
-img {
-  margin: 40px auto;
-  display: block;
-}
-
 .no-left-padding {
   padding-left: 0;
 }
@@ -24,15 +19,22 @@ h1 {
 }
 
 h1.title {
-  font-size: 35px;
-  margin: 40px 0;
+  font-size: 45px;
+  margin: 40px 0 0 0;
   font-family: "HelveticaNeue-CondensedBold", "proxima-nova-extra-condensed", Helvetica, Arial, sans-serif;
   font-style: normal;
   text-transform: uppercase;
   font-weight: 700;
   border-bottom: none;
   text-align: center;
-  color: #d84207;
+  color: #c2bbb3;
+}
+
+h1.title img {
+  max-width: 200px;
+  max-height: 104px;
+  margin-right: 10px;
+  margin-top: -16px;
 }
 
 h2 {
@@ -46,6 +48,14 @@ h3 {
   font-family: 'Montserrat', sans-serif;
   margin: 10px 0 0 0;
   padding: 0;
+}
+
+h4 {
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  margin: 10px 0;
+  padding: 0;
+  color: #d84207;
 }
 
 p {
@@ -161,10 +171,6 @@ td.mono {
   background-color: #fff;
 }
 
-.jpop-error {
-
-}
-
 /* Styles for the jpop-banner */
 
 .jpop-banner {
@@ -189,6 +195,16 @@ td.mono {
 
 .jpop-banner input, .jpop-banner button {
   float: left;
+}
+
+.jpop-banner button {
+  border-left: 1px solid #d84207;
+}
+
+.jpop-banner button:hover, .jpop-banner button:active {
+  background-color: #7c2502;
+  border-left: 1px solid #7c2502;
+  color: #fff;
 }
 
 .jpop-banner .jpop-cta {

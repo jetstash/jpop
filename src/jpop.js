@@ -23,7 +23,7 @@
     this.message  = {
       incorrectType : "Incorrect type set. Check your options.",
       incorrectForm : "You must pass your form id as an option",
-      generalError  : "Something went wrong, please refresh and try again." 
+      generalError  : "Something went wrong, please refresh and try again."
     };
   }
 
@@ -156,7 +156,7 @@
 
   jPop.prototype.htmlPopOver = function() {
     return [
-      '<div id="jpop-popover" data-type="popover" class="jpop-popover animated zoomIn" style="position:absolute;z-index:' + this.options.zindex + ';top:0;right:0;bottom:0;left:0">',
+      '<div id="jpop-popover" data-type="popover" class="jpop-popover animated zoomIn" style="position:fixed;z-index:' + this.options.zindex + ';top:0;right:0;bottom:0;left:0">',
         '<div class="jpop-content">',
           '<h1 class="jpop-cta">' + this.options.title + '</h1>',
           this.htmlForm(),
@@ -173,7 +173,7 @@
         '<label class="sr-only" for="jpop-email">Email</label>',
         '<input type="email" id="jpop-email" name="email" placeholder="email" required>',
         '<div id="jpop-error" class="jpop-error"></div>',
-        '<button class="btn btn-default" type="submit">' + this.options.button + '</button>',
+        '<button class="jpop-btn btn-default" type="submit">' + this.options.button + '</button>',
       '</form>'
     ].join("\n");
   };

@@ -15,7 +15,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <h1 class="title"><span>j</span>Pop</h1>
+        <h1 class="title"><img src="img/jetstash-logo.png" alt="Jetstash - jPop jQuery Plugin">JPop</h1>
       </div>
     </div>
     <div class="row">
@@ -112,6 +112,25 @@
               </tr>
             </tbody>
           </table>
+          <h1>Styles</h1>
+          <div class="row">
+            <div class="col-sm-12">
+              <h4>Global Classes</h4>
+              <pre>.jpop-cta {} // Call to Action title<br>.jpop-form {} // Form container<br>#jpop-email {} // Input email field<br>.jpop-btn {} // Submit button<br>.jpop-error {} // Error message</pre>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <h4>Banner Classes</h4>
+              <pre>.jpop-banner {} // Container<br>.jpop-left {} // Left column<br>.jpop-right {} // Right column</pre>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <h4>Popover Classes</h4>
+              <pre>.jpop-popover {} // Container<br>.jpop-content {} // Inner wrapper for modal<br>.jpop-backdrop {} // Transparent background overlay</pre>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -120,8 +139,8 @@
   <script type="text/javascript">
     $('body').jpop({
       form:     'm4CnDEOtbLPn',
-      type:     'popover',
-      position: 'bottom',
+      type:     'banner',
+      position: 'top',
       style:    false,
       show:     false,
       delay:    1000,
