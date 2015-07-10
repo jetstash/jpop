@@ -38,6 +38,7 @@ h1.title {
 h2 {
   font-size: 18px;
   font-family: 'Montserrat', sans-serif;
+  text-align: left;
 }
 
 h3 {
@@ -89,6 +90,7 @@ td.mono {
   background-color: #ede9e0;
   border: 1px solid #ccc;
   position: relative;
+  margin: 0 auto;
 }
 
 .ban span:first-child {
@@ -113,9 +115,9 @@ td.mono {
   display: block;
   position: relative;
   margin: 0 auto;
-  margin-top: 25px;
+  margin-top: 10px;
   width: 50%;
-  height: 50%;
+  height: 30%;
   background-color: #d84207;
 }
 
@@ -137,6 +139,8 @@ td.mono {
   box-shadow: none;
   border: none;
   color: #d84207;
+  height: 34px;
+  padding: 10px;
 }
 
 .jpop-form input:focus, .jpop-form input:active {
@@ -158,10 +162,11 @@ td.mono {
 }
 
 .jpop-error {
-  
+
 }
 
 /* Styles for the jpop-banner */
+
 .jpop-banner {
   overflow: hidden;
   height: auto;
@@ -182,9 +187,20 @@ td.mono {
   width: 50%;
 }
 
+.jpop-banner input, .jpop-banner button {
+  float: left;
+}
+
+.jpop-banner .jpop-cta {
+  float: right;
+  padding-right: 5%;
+  margin-top: 8px;
+}
+
 /* Styles for the jpop-popover */
+
 .jpop-backdrop {
-  opacity: 0.5;
+  opacity: 0;
   position: fixed;
   top: 0;
   right: 0;
@@ -206,11 +222,46 @@ td.mono {
   box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
-.jpop-cta {
-  margin-top: 25px;
-  margin-bottom: 25px;
+.jpop-popover .jpop-cta {
+  margin-top: 15px;
+  margin-bottom: 15px;
   border: 0px;
   text-align: center;
+  color: #d84207;
+}
+
+.jpop-popover input, .jpop-popover button {
+  float: left;
+}
+
+.jpop-popover input {
+  width: 100%;
+  border: 1px solid #d84207;
+  padding-right: 40%;
+  color: #594a35;
+}
+
+.jpop-popover input:focus, .jpop-popover input:active {
+  padding: 10px;
+  border: 1px solid #d84207;
+}
+
+.jpop-popover button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #d84207;
+}
+
+.jpop-popover button:hover, .jpop-popover button:active {
+  background-color: #a73305;
+  color: #fff;
+}
+
+.jpop-popover .jpop-form {
+  display: inline-block;
+  width: 100%;
+  position: relative;
 }
 
 /* Animations */
@@ -282,4 +333,60 @@ td.mono {
 .slideInUp {
   -webkit-animation-name: slideInUp;
   animation-name: slideInUp;
+}
+
+@-webkit-keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.7, .7, .7);
+    transform: scale3d(.7, .7, .7);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.7, .7, .7);
+    transform: scale3d(.7, .7, .7);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.zoomIn {
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
 }

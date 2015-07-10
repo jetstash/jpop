@@ -62,6 +62,7 @@
     $('body').on('click', '#jpop-dismiss', function(e) {
       var type = $(this).data('type');
     });
+
   };
 
   jPop.prototype.verifyData = function() {
@@ -125,7 +126,7 @@
     return [
       '<div id="jpop-banner" data-type="banner" class="jpop-banner animated '+ animation +'" style="position:fixed;z-index:' + this.options.zindex + ';width:100%;left:0;right:0;' + this.options.position + ':0;">',
         '<div class="jpop-left">',
-          '<h1 class="jpop-cta">' + this.options.title + '</h1>',
+          '<h2 class="jpop-cta">' + this.options.title + '</h2>',
         '</div>',
         '<div class="jpop-right">',
           this.htmlForm(),
@@ -136,14 +137,15 @@
 
   jPop.prototype.htmlPopOver = function() {
     return [
-      '<div id="jpop-popover" data-type="popover" class="jpop-popover" style="position:fixed;z-index:' + this.options.zindex + ';top:0;right:0;bottom:0;left:0">',
+      '<div id="jpop-popover" data-type="popover" class="jpop-popover animated zoomIn" style="position:absolute;z-index:' + this.options.zindex + ';top:0;right:0;bottom:0;left:0">',
         '<div class="jpop-content">',
           '<h1 class="jpop-cta">' + this.options.title + '</h1>',
           this.htmlForm(),
         '</div>',
       '</div>',
-      '<div class="jpop-backdrop"></div>'
+      '<div class="jpop-backdrop animated fadeIn"></div>'
     ].join("\n");
+
   };
 
   jPop.prototype.htmlForm = function() {
@@ -160,6 +162,7 @@
   $.fn.jpop = function(options) {
     var jpop = new jPop(this, options);
     jpop.run();
+
   };
 
 })(jQuery);
