@@ -1,30 +1,131 @@
-* {
-  font-family: 'Montserrat', sans-serif;
-}
-
 body {
   overflow-x: hidden;
   background-color: #fcf8f7;
+  color: #594a35;
 }
 
+img {
+  margin: 40px auto;
+  display: block;
+}
+
+.no-left-padding {
+  padding-left: 0;
+}
+
+/* Demo Typography */
+
 h1 {
-  text-align: center;
+  font-size: 22px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin: 40px 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+p {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.table {
+  font-size: 14px;
+}
+
+td.mono {
+  font-family: 'Monaco', monospace !important;
+}
+
+/* Demo Colors */
+
+.orange { color: #d84207; }
+.bg-orange { background-color: #d84207; }
+.brown { color: #594a35; }
+.bg-brown { background-color: #594a35; }
+.beige { color: #ede9e0; }
+.bg-beige { background-color: #ede9e0; }
+.lightBeige { color: #fcf8f7; }
+.bg-lightBeige { background-color: #fcf8f7; }
+
+/* Demo Layout */
+
+.readme {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px 40px 40px 40px;
+}
+
+.example {
+  margin: 20px 0;
+}
+
+.box {
+  max-width: 175px;
+  height: 100px;
+  background-color: #ede9e0;
+  border: 1px solid #ccc;
+  position: relative;
+}
+
+.ban span:first-child {
+  display: block;
+  position: relative;
+  height: 25px;
+  top: 0;
+  background-color: #d84207;
+}
+
+.ban span:last-child {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 25px;
+  bottom: 0;
+  z-index: 1;
+  background-color: #d84207;
+}
+
+.pop span {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 25px;
+  width: 50%;
+  height: 50%;
+  background-color: #d84207;
+}
+
+.table {
+  border: 1px solid #ddd;
+}
+
+.table > thead > tr > th {
+  border-bottom: 1px solid #ddd;
 }
 
 /* Styles for the jpop banner */
+
 .jpop-banner {
   overflow: hidden;
   height: 100px;
   background-color: white;
 }
+
 .jpop-left {
   float: left;
   width: 50%;
 }
+
 .jpop-right {
   float:right;
   width: 50%;
 }
+
 .jpop-form {
   margin: 0px;
 }
