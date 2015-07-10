@@ -15,17 +15,20 @@
       thanks   : "Thanks"
     };
 
-    this.el      = el;
-    this.loaded  = false;
-    this.options = $.extend(defaultOptions, options);
-    this.message = {
-      incorrectType: "Incorrect type set. Check your options.",
-      incorrectForm: "You must pass your form id as an option"
+    this.el       = el;
+    this.loaded   = false;
+    this.options  = $.extend(defaultOptions, options);
+    this.output   = { error: false, message: this.options.thanks };
+    this.endpoint = "https://api.jetstash.com/v1/form/submit";
+    this.message  = {
+      incorrectType : "Incorrect type set. Check your options.",
+      incorrectForm : "You must pass your form id as an option",
+      generalError  : "Something went wrong, please refresh and try again." 
     };
-    this.output  = { error: false, message: this.options.thanks };
   }
 
   jPop.prototype.run = function() {
+    this.loadListeners();
     if(this.options.form !== null) {
       switch(this.options.type) {
         case("banner"):
@@ -47,15 +50,32 @@
     var self = this;
 
     $('body').on('submit', 'form#jpop', function(e) {
-      var data = $(this).serialize();
+      var email   = $('#jpop-email').val(),
+          $button = $('form#jpop').find('button');
 
       e.preventDefault();
-      self.verifyData();
+      self.verifyData(email);
 
       if(self.output.error === false) {
 
+        $button.attr('disabled', true);
+
+        $.post(self.endpoint, { form : self.options.form, email : email }, function(response) {
+          response = JSON.parse(response);
+          if(response.success === true) {
+
+          } else if(response.success === false) {
+            self.output = { error: true, message: response.message };
+            self.appendError();
+            $button.attr('disabled', false);
+          } else {
+            self.output = { error: true, message: self.message.generalError };
+            self.appendError();
+            $button.attr('disabled', false);
+          }
+        });
       } else {
-        $('#jpop-error').empty().append('<p>' + self.output.message + '</p>');
+        self.appendError();
       }
     });
 
@@ -65,17 +85,20 @@
 
   };
 
-  jPop.prototype.verifyData = function() {
-    var $email = $('#jpop-email'),
-        regex  = /\S+@\S+\.\S+/;
+  jPop.prototype.verifyData = function(email) {
+    var regex  = /\S+@\S+\.\S+/;
 
-    if($email.val() === "") {
+    if(email === "") {
       this.output = { error: true, message: this.message.emptyEmail };
     }
 
-    if(false === regex.test($email.val())) {
+    if(false === regex.test(email)) {
       this.output = { error: true, message: this.message.invalidEmail };
     }
+  };
+
+  jPop.prototype.appendError = function() {
+    $('#jpop-error').empty().append('<p>' + this.output.message + '</p>');
   };
 
   jPop.prototype.inject = function(markup) {
@@ -102,10 +125,6 @@
         clearInterval(delay);
       };
     }
-  };
-
-  jPop.prototype.submitForm = function() {
-    // Ajax submission here
   };
 
   jPop.prototype.loadBanner = function() {
@@ -152,7 +171,7 @@
     return [
       '<form id="jpop" role="form" class="jpop-form">',
         '<label class="sr-only" for="jpop-email">Email</label>',
-        '<input id="jpop-email" name="email" placeholder="email" required>',
+        '<input type="email" id="jpop-email" name="email" placeholder="email" required>',
         '<div id="jpop-error" class="jpop-error"></div>',
         '<button class="btn btn-default" type="submit">' + this.options.button + '</button>',
       '</form>'
