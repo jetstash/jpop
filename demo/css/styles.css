@@ -74,7 +74,7 @@ td.mono {
 /* Demo Layout */
 
 .readme {
-  background-color: white;
+  background-color: #ffffff;
   border: 1px solid #ccc;
   padding: 10px 40px 40px 40px;
 }
@@ -124,17 +124,50 @@ td.mono {
 }
 
 .table > thead > tr > th {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #dddddd;
 }
 
-/* Styles for the jpop banner */
+/* Styles for the jpop-form */
+.jpop-form {
+  margin: 0px;
+}
 
+.jpop-form input {
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  color: #d84207;
+}
+
+.jpop-form input:focus, .jpop-form input:active {
+  border: none;
+  outline: 0;
+}
+
+.jpop-form button {
+  background-color: #a73305;
+  border-radius: 0;
+  border: none;
+  color: #fff;
+  height: 34px;
+}
+
+.jpop-form button:hover, .jpop-form button:active, .jpop-form button:focus {
+  color: #d84207;
+  background-color: #fff;
+}
+
+.jpop-error {
+  
+}
+
+/* Styles for the jpop-banner */
 .jpop-banner {
   overflow: hidden;
   height: auto;
+  padding: 20px;
   background-color: #d84207;
   color: #fff;
-  padding: 20px;
 }
 
 .jpop-left {
@@ -149,35 +182,35 @@ td.mono {
   width: 50%;
 }
 
-.jpop-form {
-  margin: 0px;
+/* Styles for the jpop-popover */
+.jpop-backdrop {
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000;
 }
 
-/* Forms and Inputs */
-
-input.form-control {
-  border-radius: 0;
-  box-shadow: none;
-  border: none;
-  color: #d84207;
+.jpop-popover {
+  width: 600px;
+  max-width: 90%;
+  margin: 30px auto;
 }
 
-input.form-control:focus, input.form-control:active {
-  border: none;
-  outline: 0;
+.jpop-content {
+  padding: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
-button[type="submit"] {
-  background-color: #a73305;
-  border-radius: 0;
-  border: none;
-  color: #fff;
-  height: 34px;
-}
-
-button[type="submit"]:hover, button[type="submit"]:active {
-  color: #d84207;
-  background-color: #fff;
+.jpop-cta {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border: 0px;
+  text-align: center;
 }
 
 /* Animations */

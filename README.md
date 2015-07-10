@@ -14,17 +14,19 @@ In Jetstash you need to create a form with a required field name of `email`, you
 $('body').jpop(options);
 ```
 
-| name       | type         | default                       | description                                                                  |
-| ---------- | -----------  | -----------                   | -----------                                                                  |
-| form       | string       | null                          | Add your form id, this is required!                                          |
-| type       | string       | `banner`                      | Defines which way the plugin operates, either `popover` or `banner`          |
-| position   | string       | `top`                         | Defines banner position, either `top` or `bottom`                            |
-| style      | string|bool  | false                         | Load one of our provided stylesheets, defaults to false                      |
-| show       | bool         | false                         | Show the on page load                                                        |
-| delay      | integer      | 500                           | Timeout before displaying (this is the default functionality)                |
-| scroll     | bool         | false                         | Display on a scroll event instead of via the timer                           |
-| title      | string       | "Subscribe to our email list" | Call to action for the form                                                  |
-| button     | string       | "Submit"                      | Submission button text                                                       |
+| name       | type         | default                                    | description                                                                  |
+| ---------- | -----------  | -----------                                | -----------                                                                  |
+| form       | string       | null                                       | Add your form id, this is required!                                          |
+| type       | string       | `banner`                                   | Defines which way the plugin operates, either `popover` or `banner`          |
+| position   | string       | `top`                                      | Defines banner position, either `top` or `bottom`                            |
+| style      | string|bool  | false                                      | Load one of our provided stylesheets, defaults to false                      |
+| zindex     | integer      | 8675309                                    | Set the z-index of the popover/jpop-banner                                   |
+| show       | bool         | false                                      | Show the on page load                                                        |
+| delay      | integer      | 500                                        | Timeout before displaying (this is the default functionality)                |
+| scroll     | bool         | false                                      | Display on a scroll event instead of via the timer                           |
+| title      | string       | "Subscribe to our email list"              | Call to action for the form                                                  |
+| button     | string       | "Submit"                                   | Submission button text                                                       |
+| thanks     | string       | "Thank you, your submission was received." | Thank you message displayed after a user signs up                            |
 
 *Check developers console for any errors the plugin might output during usage.*
 

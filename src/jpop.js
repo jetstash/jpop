@@ -6,11 +6,13 @@
       type     : "banner",
       position : "top",
       style    : false,
+      zindex   : 8675309,
       show     : false,
       delay    : 500,
       scroll   : false,
       title    : "Subscribe to our email list",
-      button   : "Submit"
+      button   : "Submit",
+      thanks   : "Thanks"
     };
 
     this.el      = el;
@@ -20,6 +22,7 @@
       incorrectType: "Incorrect type set. Check your options.",
       incorrectForm: "You must pass your form id as an option"
     };
+    this.output  = { error: false, message: this.options.thanks };
   }
 
   jPop.prototype.run = function() {
@@ -37,6 +40,40 @@
       }
     } else {
       console.log(this.message.incorrectForm);
+    }
+  };
+
+  jPop.prototype.loadListeners = function() {
+    var self = this;
+
+    $('body').on('submit', 'form#jpop', function(e) {
+      var data = $(this).serialize();
+
+      e.preventDefault();
+      self.verifyData();
+
+      if(self.output.error === false) {
+
+      } else {
+        $('#jpop-error').empty().append('<p>' + self.output.message + '</p>');
+      }
+    });
+
+    $('body').on('click', '#jpop-dismiss', function(e) {
+      var type = $(this).data('type');
+    });
+  };
+
+  jPop.prototype.verifyData = function() {
+    var $email = $('#jpop-email'),
+        regex  = /\S+@\S+\.\S+/;
+
+    if($email.val() === "") {
+      this.output = { error: true, message: this.message.emptyEmail };
+    }
+
+    if(false === regex.test($email.val())) {
+      this.output = { error: true, message: this.message.invalidEmail };
     }
   };
 
@@ -83,48 +120,41 @@
   };
 
   jPop.prototype.htmlBanner = function() {
-    var html = "";
+    var animation = this.options.position === "top" ? "slideInDown" : "slideInUp";
 
-    // Determine animation by position
-    if (this.options.position === "top") {
-      var animation = "slideInDown";
-    } else {
-      var animation = "slideInUp";
-    }
-
-    html += '<div id="jpop-banner" class="jpop-banner animated '+ animation +'" style="position:fixed;width:100%;left:0;right:0;' + this.options.position + ':0;">';
-    html += '<div class="jpop-left">';
-    html += '<h3 class="jpop-cta">' + this.options.title + '</h3>';
-    html += '</div>';
-    html += '<div class="jpop-right">';
-    html += this.htmlForm();
-    html += '</div>';
-    html += '</div>'
-
-    return html;
+    return [
+      '<div id="jpop-banner" data-type="banner" class="jpop-banner animated '+ animation +'" style="position:fixed;z-index:' + this.options.zindex + ';width:100%;left:0;right:0;' + this.options.position + ':0;">',
+        '<div class="jpop-left">',
+          '<h1 class="jpop-cta">' + this.options.title + '</h1>',
+        '</div>',
+        '<div class="jpop-right">',
+          this.htmlForm(),
+        '</div>',
+      '</div>'
+    ].join("\n");
   };
 
   jPop.prototype.htmlPopOver = function() {
-    var html = "";
-
-    html += '<div id="jpop-popover" class="jpop-popover" style="position:fixed;width:100%;height:100%;top:0;right:0;bottom:0;left:0">';
-    html += '</div>';
-
-    return html;
+    return [
+      '<div id="jpop-popover" data-type="popover" class="jpop-popover" style="position:fixed;z-index:' + this.options.zindex + ';top:0;right:0;bottom:0;left:0">',
+        '<div class="jpop-content">',
+          '<h1 class="jpop-cta">' + this.options.title + '</h1>',
+          this.htmlForm(),
+        '</div>',
+      '</div>',
+      '<div class="jpop-backdrop"></div>'
+    ].join("\n");
   };
 
   jPop.prototype.htmlForm = function() {
-    var html = [
-      '<form id="jpop" role="form" class="jpop-form form-inline">',
-        '<div class="form-group">',
-          '<label class="sr-only" for="email">Email</label>',
-          '<input id="email" class="form-control" name="email" placeholder="email" required>',
-        '</div>',
+    return [
+      '<form id="jpop" role="form" class="jpop-form">',
+        '<label class="sr-only" for="jpop-email">Email</label>',
+        '<input id="jpop-email" name="email" placeholder="email" required>',
+        '<div id="jpop-error" class="jpop-error"></div>',
         '<button class="btn btn-default" type="submit">' + this.options.button + '</button>',
       '</form>'
     ].join("\n");
-
-    return html;
   };
 
   $.fn.jpop = function(options) {
