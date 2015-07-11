@@ -72,7 +72,8 @@ td.mono {
 }
 
 /* Demo Colors */
-
+.white { color: #ffffff; }
+.bg-white { background-color: #ffffff; }
 .orange { color: #d84207; }
 .bg-orange { background-color: #d84207; }
 .brown { color: #594a35; }
@@ -277,15 +278,31 @@ a.copyright:focus, a.copyright:hover, a.copyright:active {
 }
 
 .jpop-popover {
-  width: 600px;
-  max-width: 90%;
-  margin: 30px auto;
+  pointer-events: none;
+  background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
+  filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7', sizingMethod='scale');
+  background: none !important;
 }
 
 .jpop-content {
+  position: relative;
+  width: 600px;
+  height: auto;
+  max-width: 90%;
+  margin: 30px auto;
   padding: 15px;
   background-color: #ffffff;
   box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.jpop-dismiss {
+  cursor: pointer;
+}
+
+.jpop-content .jpop-dismiss {
+  position: absolute;
+  top: 6px;
+  right: 6px;
 }
 
 .jpop-popover .jpop-cta {

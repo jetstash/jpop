@@ -25,7 +25,6 @@
       incorrectForm : "You must pass your form id as an option",
       generalError  : "Something went wrong, please refresh and try again."
     };
-    console.log(options);
   }
 
   jPop.prototype.run = function() {
@@ -80,10 +79,11 @@
       }
     });
 
-    $('body').on('click', '#jpop-dismiss', function(e) {
+    $('body').on('click', '#jpop-dismiss, #jpop-backdrop', function() {
       var type = $(this).data('type');
+      $('#jpop-' + type).remove();
+      $('#jpop-backdrop').remove();
     });
-
   };
 
   jPop.prototype.verifyData = function(email) {
@@ -118,7 +118,7 @@
     } else {
       delay = setInterval(function() {
         self.el.append(markup);
-        self.load = true;
+        self.loaded = true;
         clear();
       }, this.options.delay);
 
@@ -151,6 +151,7 @@
         '<div class="jpop-right">',
           this.htmlForm(),
         '</div>',
+        '<a id="jpop-dismiss" class="jpop-dismiss white" data-type="banner">Close</a>',
       '</div>'
     ].join("\n");
   };
@@ -159,11 +160,12 @@
     return [
       '<div id="jpop-popover" data-type="popover" class="jpop-popover animated zoomIn" style="position:fixed;z-index:' + this.options.zindex + ';top:0;right:0;bottom:0;left:0">',
         '<div class="jpop-content">',
+          '<a id="jpop-dismiss" class="jpop-dismiss orange">Close</a>',
           '<h1 class="jpop-cta">' + this.options.title + '</h1>',
           this.htmlForm(),
         '</div>',
       '</div>',
-      '<div class="jpop-backdrop animated fadeIn"></div>'
+      '<div id="jpop-backdrop" class="jpop-backdrop animated fadeIn" data-type="popover"></div>'
     ].join("\n");
 
   };

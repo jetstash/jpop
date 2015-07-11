@@ -55,8 +55,8 @@
               <div class="form-group">
                 <label for="scroll">On Scroll</label>
                 <select class="form-control" id="scroll" name="scroll">
-                  <option value="true">True</option>
                   <option value="false">False</option>
+                  <option value="true">True</option>
                 </select>
               </div>
             </form>
@@ -178,9 +178,10 @@
   </div>
 
   <script type="text/javascript">
+
     $('#view-demo').on('click', function() {
-      $('#jpop-banner, #jpop-popover').remove();
-      $('body').unbind('jpop');
+      // $('#jpop-banner, #jpop-popover, #jpop-backdrop').remove();
+      // $('body').unbind('jpop');
 
       $('body').jpop({
         form     : 'yMLrWm89FHK7',
@@ -192,6 +193,8 @@
         scroll   : $('#scroll').val() === "true" ? true : false,
         button   : "Subscribe"
       });
+
+      $(this).attr('disabled', true);
     });
   </script>
 
