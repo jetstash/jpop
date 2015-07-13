@@ -81,13 +81,9 @@
     });
 
     $('body').on('click', '#jpop-dismiss, #jpop-backdrop', function() {
-      var evtOptions, type = $(this).data('type');
+      var type = $(this).data('type');
       $('#jpop-' + type).remove();
       $('#jpop-backdrop').remove();
-
-      evtOptions = {
-        dismissed: false
-      };
 
       self.loadCustomEvent("jpop-dismissed", { dismissed: true });
     });
