@@ -32,15 +32,29 @@ $('body').jpop(options);
 
 ## styling
 
+### global
+```
+.jpop-cta {} // Call to Action title
+.jpop-form {} // Form container
+.jpop-input {} // Input email field
+.jpop-btn {} // Submit button
+.jpop-error {} // Error message
+.jpop-dismiss {} // Dismiss button
+```
+
 ### banner
 ```
-.jpop-banner {}
+.jpop-banner {} // Container
+.jpop-left {} // Left column
+.jpop-right {} // Right column
 
 ```
 
 ### popover
 ```
-.jpop-popover {}
+.jpop-popover {} // Container
+.jpop-content {} // Inner wrapper for modal
+.jpop-backdrop {} // Transparent background overlay
 ```
 
 ## requirements
