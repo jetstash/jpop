@@ -127,7 +127,7 @@ button.view-demo:hover, button.view-demo:focus, button.view-demo:active {
   color: #ffffff;
 }
 
-.readme .example {
+.readme .example, .readme .events {
   margin: 20px auto;
 }
 

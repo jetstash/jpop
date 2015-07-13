@@ -63,7 +63,8 @@
         $.post(self.endpoint, { form : self.options.form, email : email }, function(response) {
           response = JSON.parse(response);
           if(response.success === true) {
-
+            // todo: success stuff
+            self.loadCustomEvent("jpop-success");
           } else if(response.success === false) {
             self.output = { error: true, message: response.message };
             self.appendError();
@@ -80,10 +81,27 @@
     });
 
     $('body').on('click', '#jpop-dismiss, #jpop-backdrop', function() {
-      var type = $(this).data('type');
+      var evtOptions, type = $(this).data('type');
       $('#jpop-' + type).remove();
       $('#jpop-backdrop').remove();
+
+      evtOptions = {
+        dismissed: false
+      };
+
+      self.loadCustomEvent("jpop-dismissed", { dismissed: true });
     });
+  };
+
+  jPop.prototype.loadCustomEvent = function(name, curState) {
+    var evtState = {
+      dismissed: false
+    };
+
+    curState = curState || {};
+    evtState = $.extend(evtState, curState);
+
+    $.event.trigger({ type: name, 'state': evtState });
   };
 
   jPop.prototype.verifyData = function(email) {
@@ -107,18 +125,19 @@
 
     if(this.options.show) {
       this.el.append(markup);
-      this.loaded = true;
+      this.loadCustomEvent("jpop-displayed");
     } else if(this.options.scroll) {
       $(window).on("scroll mousewheel", function() {
         if(!self.loaded) {
           self.el.append(markup);
           self.loaded = true;
+          self.loadCustomEvent("jpop-displayed");
         }
       });
     } else {
       delay = setInterval(function() {
         self.el.append(markup);
-        self.loaded = true;
+        self.loadCustomEvent("jpop-displayed");
         clear();
       }, this.options.delay);
 
@@ -184,7 +203,6 @@
   $.fn.jpop = function(options) {
     var jpop = new jPop(this, options);
     jpop.run();
-
   };
 
 })(jQuery);
