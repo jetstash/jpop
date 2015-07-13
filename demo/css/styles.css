@@ -277,13 +277,6 @@ a.copyright:focus, a.copyright:hover, a.copyright:active {
   background-color: #000;
 }
 
-.jpop-popover {
-  pointer-events: none;
-  background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
-  filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7', sizingMethod='scale');
-  background: none !important;
-}
-
 .jpop-content {
   position: relative;
   width: 600px;

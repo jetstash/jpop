@@ -80,11 +80,12 @@
       }
     });
 
-    $('body').on('click', '#jpop-dismiss, #jpop-backdrop', function() {
-      var type = $(this).data('type');
-      $('#jpop-' + type).remove();
-      $('#jpop-backdrop').remove();
+    $('body').on('click', '#jpop-dismiss, #jpop-popover', function(e) {
+      if(e.target.id !== "jpop-popover") return
 
+      var type = $(this).data('type');
+
+      $('#jpop-backdrop, #jpop-' + type).remove();
       self.loadCustomEvent("jpop-dismissed", { dismissed: true });
     });
   };
