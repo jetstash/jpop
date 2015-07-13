@@ -1,11 +1,11 @@
 /*
 
 Version: 0.0.1
-Build: Mon, 13 Jul 2015 19:57:06 GMT
+Build: Mon, 13 Jul 2015 21:35:51 GMT
 
 The MIT License (MIT)
 
-Copyright (c) 2015 Jetstash
+Copyright (c) 2015 Jetstash LLC
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
