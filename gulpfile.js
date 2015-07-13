@@ -5,6 +5,7 @@ var gulp    = require('gulp'),
     uglify  = require('gulp-uglify'),
     header  = require('gulp-header'),
     rename  = require('gulp-rename'),
+    jslint  = require('gulp-jslint');
     fs      = require('fs');
 
 var license = fs.readFileSync('./LICENSE', 'utf8');
@@ -14,6 +15,15 @@ var version = fs.readFileSync('./VERSION', 'utf8');
 gulp.task('uglify', function() {
   return gulp.src('src/*.js')
     .pipe(concat('jpop.min.v' + version + '.js'))
+    .pipe(jslint({
+      node       : true,
+      white      : true,
+      browser    : true,
+      errorsOnly : false
+    }))
+    .on('error', function(error) {
+      console.error(String(error));
+    })
     .pipe(uglify())
     .on('error', printError)
     .pipe(header(license, {

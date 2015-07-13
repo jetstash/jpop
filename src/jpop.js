@@ -1,6 +1,10 @@
-;(function($) {
+/*global $, jQuery*/
 
-  function jPop(el, options) {
+(function($) {
+
+  "use strict";
+
+  function Jpop(el, options) {
     var defaultOptions = {
       form     : null,
       type     : "banner",
@@ -27,7 +31,7 @@
     };
   }
 
-  jPop.prototype.run = function() {
+  Jpop.prototype.run = function() {
     this.loadListeners();
     if(this.options.form !== null) {
       switch(this.options.type) {
@@ -46,7 +50,7 @@
     }
   };
 
-  jPop.prototype.loadListeners = function() {
+  Jpop.prototype.loadListeners = function() {
     var self = this;
 
     $('body').on('submit', 'form#jpop', function(e) {
@@ -63,7 +67,7 @@
         $.post(self.endpoint, { form : self.options.form, email : email }, function(response) {
           response = JSON.parse(response);
           if(response.success === true) {
-            // todo: success stuff
+
             self.loadCustomEvent("jpop-success");
           } else if(response.success === false) {
             self.output = { error: true, message: response.message };
@@ -81,7 +85,7 @@
     });
 
     $('body').on('click', '#jpop-dismiss, #jpop-popover', function(e) {
-      if(e.target.id !== "jpop-popover") return
+      if(e.target.id !== "jpop-popover") { return; }
 
       var type = $(this).data('type');
 
@@ -90,7 +94,7 @@
     });
   };
 
-  jPop.prototype.loadCustomEvent = function(name, curState) {
+  Jpop.prototype.loadCustomEvent = function(name, curState) {
     var evtState = {
       dismissed: false
     };
@@ -101,7 +105,7 @@
     $.event.trigger({ type: name, 'state': evtState });
   };
 
-  jPop.prototype.verifyData = function(email) {
+  Jpop.prototype.verifyData = function(email) {
     var regex  = /\S+@\S+\.\S+/;
 
     if(email === "") {
@@ -113,11 +117,11 @@
     }
   };
 
-  jPop.prototype.appendError = function() {
+  Jpop.prototype.appendError = function() {
     $('#jpop-error').empty().append('<p>' + this.output.message + '</p>');
   };
 
-  jPop.prototype.inject = function(markup) {
+  Jpop.prototype.inject = function(markup) {
     var self = this, delay, clear;
 
     if(this.options.show) {
@@ -144,19 +148,19 @@
     }
   };
 
-  jPop.prototype.loadBanner = function() {
+  Jpop.prototype.loadBanner = function() {
     var markup = this.htmlBanner();
 
     this.inject(markup);
   };
 
-  jPop.prototype.loadPopOver = function() {
+  Jpop.prototype.loadPopOver = function() {
     var markup = this.htmlPopOver();
 
     this.inject(markup);
   };
 
-  jPop.prototype.htmlBanner = function() {
+  Jpop.prototype.htmlBanner = function() {
     var animation = this.options.position === "top" ? "slideInDown" : "slideInUp";
 
     return [
@@ -172,7 +176,7 @@
     ].join("\n");
   };
 
-  jPop.prototype.htmlPopOver = function() {
+  Jpop.prototype.htmlPopOver = function() {
     return [
       '<div id="jpop-popover" data-type="popover" class="jpop-popover animated zoomIn" style="position:fixed;z-index:' + this.options.zindex + ';top:0;right:0;bottom:0;left:0">',
         '<div class="jpop-content">',
@@ -186,7 +190,7 @@
 
   };
 
-  jPop.prototype.htmlForm = function() {
+  Jpop.prototype.htmlForm = function() {
     return [
       '<form id="jpop" role="form" class="jpop-form">',
         '<label class="sr-only" for="jpop-email">Email</label>',
@@ -198,8 +202,8 @@
   };
 
   $.fn.jpop = function(options) {
-    var jpop = new jPop(this, options);
+    var jpop = new Jpop(this, options);
     jpop.run();
   };
 
-})(jQuery);
+}(jQuery));
