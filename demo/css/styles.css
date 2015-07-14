@@ -286,6 +286,14 @@ a.copyright:focus, a.copyright:hover, a.copyright:active {
   color: #7c2502;
 }
 
+.jpop-banner .jpop-error {
+  width: intrinsic;
+  clear: both;
+  padding-top: 15px;
+  color: #fff;
+  font-weight: 700;
+}
+
 /* Styles for the jpop-popover */
 
 .jpop-backdrop {
@@ -364,10 +372,21 @@ a.copyright:focus, a.copyright:hover, a.copyright:active {
   color: #fff;
 }
 
+.jpop-popover button:disabled {
+  background-color: #ccc;
+}
+
 .jpop-popover .jpop-form {
   display: inline-block;
   width: 100%;
   position: relative;
+}
+
+.jpop-popover .jpop-error {
+  clear: both;
+  padding-top: 15px;
+  color: #d84207;
+  font-weight: 700;
 }
 
 /* Animations */

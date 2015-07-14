@@ -195,8 +195,8 @@
       '<form id="jpop" role="form" class="jpop-form">',
         '<label class="sr-only" for="jpop-email">Email</label>',
         '<input type="email" id="jpop-email" class="jpop-input" name="email" placeholder="email" required>',
-        '<div id="jpop-error" class="jpop-error"></div>',
         '<button class="jpop-btn btn-default" type="submit">' + this.options.button + '</button>',
+        '<div id="jpop-error" class="jpop-error"></div>',
       '</form>'
     ].join("\n");
   };
