@@ -171,7 +171,7 @@
         '<div class="jpop-right">',
           this.htmlForm(),
         '</div>',
-        '<a id="jpop-dismiss" class="jpop-dismiss white" data-type="banner">Close</a>',
+        '<a id="jpop-dismiss" class="jpop-dismiss white" data-type="banner">&times;</a>',
       '</div>'
     ].join("\n");
   };
@@ -180,7 +180,7 @@
     return [
       '<div id="jpop-popover" data-type="popover" class="jpop-popover animated zoomIn" style="position:fixed;z-index:' + this.options.zindex + ';top:0;right:0;bottom:0;left:0">',
         '<div class="jpop-content">',
-          '<a id="jpop-dismiss" class="jpop-dismiss orange">Close</a>',
+          '<a id="jpop-dismiss" class="jpop-dismiss orange">&times;</a>',
           '<h1 class="jpop-cta">' + this.options.title + '</h1>',
           this.htmlForm(),
         '</div>',

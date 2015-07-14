@@ -264,6 +264,28 @@ a.copyright:focus, a.copyright:hover, a.copyright:active {
   margin-top: 8px;
 }
 
+.jpop-banner .jpop-dismiss {
+  cursor: pointer;
+  font-size: 45px;
+  color: white;
+  position: absolute;
+  right: 20px;
+
+}
+
+.slideInDown .jpop-dismiss {
+  top: 0;
+}
+
+.slideInUp .jpop-dismiss {
+  top: 5px;
+}
+
+.jpop-banner .jpop-dismiss:hover {
+  text-decoration: none;
+  color: #7c2502;
+}
+
 /* Styles for the jpop-popover */
 
 .jpop-backdrop {
@@ -288,8 +310,16 @@ a.copyright:focus, a.copyright:hover, a.copyright:active {
   box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
-.jpop-dismiss {
+.jpop-popover .jpop-dismiss {
   cursor: pointer;
+  font-size: 40px;
+  margin-right: 10px;
+  margin-top: -10px;
+}
+
+.jpop-popover .jpop-dismiss:hover {
+  text-decoration: none;
+  color: #7c2502;
 }
 
 .jpop-content .jpop-dismiss {
