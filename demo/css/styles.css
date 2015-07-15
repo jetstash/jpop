@@ -21,7 +21,7 @@ h1 {
 h1.title {
   font-size: 45px;
   margin: 40px 0 0 0;
-  font-family: "HelveticaNeue-CondensedBold", "proxima-nova-extra-condensed", Helvetica, Arial, sans-serif;
+  font-family: "HelveticaNeue-CondensedBold", "Montserrat", Helvetica, Arial, sans-serif;
   font-style: normal;
   text-transform: uppercase;
   font-weight: 700;
@@ -114,13 +114,18 @@ pre {
 }
 
 button.view-demo {
-  width: 100px;
+  width: auto;
   height: 50px;
   margin: 35px 0 0 0;
   border: none;
   border-radius: 0px;
   color: #ffffff;
   background-color: #d84207;
+  font-family: "HelveticaNeue-CondensedBold", "Montserrat", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 button.view-demo:hover, button.view-demo:focus, button.view-demo:active {
