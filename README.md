@@ -27,6 +27,8 @@ $('body').jpop(options);
 | title      | string       | "Subscribe to our email list"              | Call to action for the form                                                  |
 | button     | string       | "Submit"                                   | Submission button text                                                       |
 | thanks     | string       | "Thank you, your submission was received." | Thank you message displayed after a user signs up                            |
+| cookie     | bool         | true                                       | Creates a cookie to prevent a user from seeing multiple banners/popovers     |
+| expires    | integer      | 2592000                                    | Time until the cookie expires, default is 30 days                            |
 
 *Check developers console for any errors the plugin might output during usage.*
 

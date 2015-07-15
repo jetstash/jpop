@@ -16,7 +16,9 @@
       scroll   : false,
       title    : "Subscribe to our email list",
       button   : "Submit",
-      thanks   : "Thanks"
+      thanks   : "Thanks",
+      cookie   : true,
+      expires  : 2592000
     };
 
     this.el       = el;
@@ -32,6 +34,8 @@
   }
 
   Jpop.prototype.run = function() {
+    if(this.options.cookie && this.checkCookieExists()) { return; }
+
     this.loadListeners();
     if(this.options.form !== null) {
       switch(this.options.type) {
@@ -127,18 +131,21 @@
     if(this.options.show) {
       this.el.append(markup);
       this.loadCustomEvent("jpop-displayed");
+      this.createCookie();
     } else if(this.options.scroll) {
       $(window).on("scroll mousewheel", function() {
         if(!self.loaded) {
           self.el.append(markup);
           self.loaded = true;
           self.loadCustomEvent("jpop-displayed");
+          self.createCookie();
         }
       });
     } else {
       delay = setInterval(function() {
         self.el.append(markup);
         self.loadCustomEvent("jpop-displayed");
+        self.createCookie();
         clear();
       }, this.options.delay);
 
@@ -206,6 +213,33 @@
     ].join("\n");
   };
 
+  /**
+   * Creates a cookie with a 30 day expiration
+   *
+   * @return void
+   */
+  Jpop.prototype.createCookie = function() {
+    if(this.options.cookie) {
+      document.cookie = "jpop=true;max-age=" + this.options.duration;
+    }
+  };
+
+  /**
+   * Checks our cookie and returns its existance
+   *
+   * @return bool
+   */
+  Jpop.prototype.checkCookieExists = function() {
+    return (document.cookie.indexOf("jpop") > -1) ? true : false;
+  };
+
+  /**
+   * Instantiate a method on jQuery to use on an element
+   *
+   * @param options object
+   *
+   * @return void
+   */
   $.fn.jpop = function(options) {
     var jpop = new Jpop(this, options);
     jpop.run();

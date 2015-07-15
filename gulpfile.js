@@ -19,6 +19,7 @@ gulp.task('uglify', function() {
       node       : true,
       white      : true,
       browser    : true,
+      regexp     : false,
       errorsOnly : false
     }))
     .on('error', printError)
