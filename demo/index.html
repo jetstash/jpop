@@ -115,11 +115,6 @@
                 <td>Set where on the page you want the banner to appear (only for banner type).</td>
               </tr>
               <tr>
-                <td class="mono">style</td>
-                <td class="mono">false</td>
-                <td>This is a description.</td>
-              </tr>
-              <tr>
                 <td class="mono">zindex</td>
                 <td class="mono">8675309</td>
                 <td>Set the z-index of the popover/jpop-banner.</td>
@@ -169,7 +164,7 @@
           <div class="row">
             <div class="col-sm-12">
               <h4>Global Classes</h4>
-              <pre>.jpop-cta {} // Call to Action title<br>.jpop-form {} // Form container<br>.jpop-input {} // Input email field<br>.jpop-btn {} // Submit button<br>.jpop-error {} // Error message<br>.jpop-dismiss {} // Dismiss button</pre>
+              <pre>.jpop-cta {} // Call to Action title<br>.jpop-form {} // Form container<br>.jpop-input {} // Input email field<br>.jpop-btn {} // Submit button<br>.jpop-error {} // Error message<br>.jpop-success {} // Success message<br>.jpop-dismiss {} // Dismiss button</pre>
             </div>
           </div>
           <div class="row">
@@ -231,7 +226,8 @@
         delay    : parseInt($('#delay').val(), 10),
         scroll   : $('#scroll').val() === "true" ? true : false,
         button   : "Subscribe",
-        cookie   : true,
+        thanks   : "Thanks for trying out the demo.",
+        cookie   : false,
         expires  : 600
       });
 

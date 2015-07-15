@@ -14,7 +14,6 @@
       form     : null,
       type     : "banner",
       position : "top",
-      style    : false,
       zindex   : 8675309,
       show     : false,
       delay    : 500,
@@ -86,16 +85,17 @@
         $.post(self.endpoint, { form : self.options.form, email : email }, function(response) {
           response = JSON.parse(response);
           if(response.success === true) {
-
+            $('#jpop *').remove();
+            $('#jpop').append('<div id="jpop-success" class="jpop-success"><p>' + self.output.message + '</p></div>');
             self.loadCustomEvent("jpop-success");
           } else if(response.success === false) {
             self.output = { error: true, message: response.message };
-            self.appendError();
             $button.attr('disabled', false);
+            self.appendError();
           } else {
             self.output = { error: true, message: self.message.generalError };
-            self.appendError();
             $button.attr('disabled', false);
+            self.appendError();
           }
         });
       } else {

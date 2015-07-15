@@ -19,7 +19,6 @@ $('body').jpop(options);
 | form       | string       | null                                       | Add your form id, this is required!                                          |
 | type       | string       | `banner`                                   | Defines which way the plugin operates, either `popover` or `banner`          |
 | position   | string       | `top`                                      | Defines banner position, either `top` or `bottom`                            |
-| style      | string|bool  | false                                      | Load one of our provided stylesheets, defaults to false                      |
 | zindex     | integer      | 8675309                                    | Set the z-index of the popover/jpop-banner                                   |
 | show       | bool         | false                                      | Show the on page load                                                        |
 | delay      | integer      | 500                                        | Timeout before displaying (this is the default functionality)                |
@@ -41,6 +40,7 @@ $('body').jpop(options);
 .jpop-input {} // Input email field
 .jpop-btn {} // Submit button
 .jpop-error {} // Error message
+.jpop-success {} // Success message
 .jpop-dismiss {} // Dismiss button
 ```
 
