@@ -222,6 +222,18 @@ a.copyright:focus, a.copyright:hover, a.copyright:active {
   height: 34px;
 }
 
+.jpop-form button[disabled] {
+  background-color: #a73305;
+  border: 0px;
+  opacity: .7;
+}
+
+.jpop-form button[disabled]:hover, .jpop-form button[disabled]:active,
+.jpop-form button[disabled]:focus {
+  background-color: #a73305;
+  border: 0px;
+}
+
 .jpop-form button:hover, .jpop-form button:active, .jpop-form button:focus {
   color: #d84207;
   background-color: #fff;
@@ -375,10 +387,6 @@ a.copyright:focus, a.copyright:hover, a.copyright:active {
 .jpop-popover button:hover, .jpop-popover button:active {
   background-color: #a73305;
   color: #fff;
-}
-
-.jpop-popover button:disabled {
-  background-color: #ccc;
 }
 
 .jpop-popover .jpop-form {
