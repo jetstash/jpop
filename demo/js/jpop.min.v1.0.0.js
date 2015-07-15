@@ -1,7 +1,7 @@
 /*
 
-Version: 0.0.1
-Build: Wed, 15 Jul 2015 21:56:58 GMT
+Version: 1.0.0
+Build: Wed, 15 Jul 2015 21:59:28 GMT
 
 The MIT License (MIT)
 

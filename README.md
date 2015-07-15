@@ -4,7 +4,7 @@ A jQuery plugin that integrates Jetstash in via a timed/action based popover or 
 
 ## install
 
-Add the `jpop.min.js` to your project, the latest build can be found in the master branch in the `dist` folder.
+Add the `jpop.min.js` to your project, we suggest you download the [latest stable minified release](https://github.com/jetstash/jpop/releases).
 
 In Jetstash you need to create a form with a required field name of `email`, you may have other fields in the form but at current they cannot be set to required else the entire submission will fail.
 
