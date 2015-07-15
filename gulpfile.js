@@ -21,9 +21,7 @@ gulp.task('uglify', function() {
       browser    : true,
       errorsOnly : false
     }))
-    .on('error', function(error) {
-      console.error(String(error));
-    })
+    .on('error', printError)
     .pipe(uglify())
     .on('error', printError)
     .pipe(header(license, {
