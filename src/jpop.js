@@ -84,13 +84,13 @@
       }
     });
 
-    $('body').on('click', '#jpop-dismiss, #jpop-popover', function(e) {
+    $('body').on('click', '#jpop-popover', function(e) {
       if(e.target.id !== "jpop-popover") { return; }
+      self.clearJpop($(this).data('type'));
+    });
 
-      var type = $(this).data('type');
-
-      $('#jpop-backdrop, #jpop-' + type).remove();
-      self.loadCustomEvent("jpop-dismissed", { dismissed: true });
+    $('body').on('click', '#jpop-dismiss', function() {
+      self.clearJpop($(this).data('type'));
     });
   };
 
@@ -148,6 +148,11 @@
     }
   };
 
+  Jpop.prototype.clearJpop = function(type) {
+    $('#jpop-backdrop, #jpop-' + type).remove();
+    this.loadCustomEvent("jpop-dismissed", { dismissed: true });
+  };
+
   Jpop.prototype.loadBanner = function() {
     var markup = this.htmlBanner();
 
@@ -180,7 +185,7 @@
     return [
       '<div id="jpop-popover" data-type="popover" class="jpop-popover animated zoomIn" style="position:fixed;z-index:' + this.options.zindex + ';top:0;right:0;bottom:0;left:0">',
         '<div class="jpop-content">',
-          '<a id="jpop-dismiss" class="jpop-dismiss orange">&times;</a>',
+          '<a id="jpop-dismiss" class="jpop-dismiss orange" data-type="popover">&times;</a>',
           '<h1 class="jpop-cta">' + this.options.title + '</h1>',
           this.htmlForm(),
         '</div>',
