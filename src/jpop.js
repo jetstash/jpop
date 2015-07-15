@@ -4,6 +4,11 @@
 
   "use strict";
 
+  /**
+   * Instantiate our function
+   *
+   * @return void
+   */
   function Jpop(el, options) {
     var defaultOptions = {
       form     : null,
@@ -33,6 +38,11 @@
     };
   }
 
+  /**
+   * Runs the function
+   *
+   * @return void
+   */
   Jpop.prototype.run = function() {
     if(this.options.cookie && this.checkCookieExists()) { return; }
 
@@ -54,6 +64,11 @@
     }
   };
 
+  /**
+   * Load listeners to the DOM
+   *
+   * @return void
+   */
   Jpop.prototype.loadListeners = function() {
     var self = this;
 
@@ -98,6 +113,12 @@
     });
   };
 
+  /**
+   * Loads custom events
+   *
+   * @param name string
+   * @param curState object
+   */
   Jpop.prototype.loadCustomEvent = function(name, curState) {
     var evtState = {
       dismissed: false
@@ -109,6 +130,13 @@
     $.event.trigger({ type: name, 'state': evtState });
   };
 
+  /**
+   * Verify the form fields data on submit prior to pushing to the API
+   *
+   * @param string
+   *
+   * @return void
+   */
   Jpop.prototype.verifyData = function(email) {
     var regex  = /\S+@\S+\.\S+/;
 
@@ -121,10 +149,22 @@
     }
   };
 
+  /**
+   * Appends error message to the form
+   *
+   * @return void
+   */
   Jpop.prototype.appendError = function() {
     $('#jpop-error').empty().append('<p>' + this.output.message + '</p>');
   };
 
+  /**
+   * Injects jpop into the DOM
+   *
+   * Order: Show >> Scroll >> Timer
+   *
+   * @return void
+   */
   Jpop.prototype.inject = function(markup) {
     var self = this, delay, clear;
 
@@ -155,23 +195,43 @@
     }
   };
 
+  /**
+   * Clear jpop from the DOM
+   *
+   * @return void
+   */
   Jpop.prototype.clearJpop = function(type) {
     $('#jpop-backdrop, #jpop-' + type).remove();
     this.loadCustomEvent("jpop-dismissed", { dismissed: true });
   };
 
+  /**
+   * Load method for the banner
+   *
+   * @return void
+   */
   Jpop.prototype.loadBanner = function() {
     var markup = this.htmlBanner();
 
     this.inject(markup);
   };
 
+  /**
+   * Load method for the popover
+   *
+   * @return void
+   */
   Jpop.prototype.loadPopOver = function() {
     var markup = this.htmlPopOver();
 
     this.inject(markup);
   };
 
+  /**
+   * Creates the markup for the banner
+   *
+   * @return string
+   */
   Jpop.prototype.htmlBanner = function() {
     var animation = this.options.position === "top" ? "slideInDown" : "slideInUp";
 
@@ -188,6 +248,11 @@
     ].join("\n");
   };
 
+  /**
+   * Creates the markup for the popover
+   *
+   * @return string
+   */
   Jpop.prototype.htmlPopOver = function() {
     return [
       '<div id="jpop-popover" data-type="popover" class="jpop-popover animated zoomIn" style="position:fixed;z-index:' + this.options.zindex + ';top:0;right:0;bottom:0;left:0">',
@@ -202,6 +267,11 @@
 
   };
 
+  /**
+   * Creates the markup for the form fields
+   *
+   * @return string
+   */
   Jpop.prototype.htmlForm = function() {
     return [
       '<form id="jpop" role="form" class="jpop-form">',
