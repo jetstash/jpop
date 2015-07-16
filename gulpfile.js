@@ -14,7 +14,7 @@ var version = fs.readFileSync('./VERSION', 'utf8');
 
 gulp.task('uglify', function() {
   return gulp.src('src/*.js')
-    .pipe(concat('jpop.min.v' + version + '.js'))
+    .pipe(concat('jpop.min.js'))
     .pipe(jslint({
       node       : true,
       white      : true,
@@ -33,6 +33,16 @@ gulp.task('uglify', function() {
     .pipe(gulp.dest('demo/js'));
 });
 
+gulp.task('dist', function() {
+  return gulp.src('src/*.js')
+    .pipe(concat('jpop.js'))
+    .pipe(header(license, {
+      version: version,
+      build: build
+    }))
+    .pipe(gulp.dest('dist'))
+});
+
 gulp.task('watch', function() {
   gulp.watch('src/*.js', ['uglify']);
 });
@@ -40,7 +50,7 @@ gulp.task('watch', function() {
 gutil.log('VERSION: ' + version);
 gutil.log('BUILD: ' + build);
 
-gulp.task('default', ['uglify', 'watch']);
+gulp.task('default', ['uglify', 'dist', 'watch']);
 
 function printError(error) {
   console.log(error.toString());
