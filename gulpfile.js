@@ -8,7 +8,7 @@ var gulp    = require('gulp'),
     jslint  = require('gulp-jslint');
     fs      = require('fs');
 
-var license = fs.readFileSync('./LICENSE', 'utf8');
+var license = fs.readFileSync('./BUILD', 'utf8');
 var build   = (new Date()).toUTCString();
 var version = fs.readFileSync('./VERSION', 'utf8');
 

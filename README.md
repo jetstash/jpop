@@ -68,5 +68,5 @@ Requires npm to update and build the plugin. Run `npm install` to add assets, `g
 
 ## license
 
-MIT
+GPLv3
 
