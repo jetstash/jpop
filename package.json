@@ -1,6 +1,6 @@
 {
   "name": "jpop",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A jQuery plugin that integrates Jetstash in via a timed/action based popover or a call-to-action banner.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,7 +20,7 @@
     "gen"
   ],
   "author": "Jetstash LLC",
-  "license": "MIT",
+  "license": "GPLv3",
   "bugs": {
     "url": "https://github.com/jetstash/jpop/issues"
   },
