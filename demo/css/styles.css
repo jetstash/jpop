@@ -1,7 +1,7 @@
 body {
   overflow-x: hidden;
-  background-color: #fcf8f7;
-  color: #594a35;
+  background-color: #e9e9e8;
+  color: #686763;
 }
 
 .no-left-padding {
@@ -21,13 +21,13 @@ h1 {
 h1.title {
   font-size: 45px;
   margin: 40px 0 0 0;
-  font-family: "HelveticaNeue-CondensedBold", "Montserrat", Helvetica, Arial, sans-serif;
+  font-family: "HelveticaNeue", "Montserrat", Helvetica, Arial, sans-serif;
   font-style: normal;
   text-transform: uppercase;
   font-weight: 700;
   border-bottom: none;
   text-align: center;
-  color: #c2bbb3;
+  color: #686763;
 }
 
 h1.title img {
@@ -98,7 +98,7 @@ td.mono {
 }
 
 pre {
-  background-color: #ede9e0;
+  background-color: #f8f8f8;
   border: 1px solid #ccc;
   border-radius: 0px;
 }
@@ -121,7 +121,7 @@ button.view-demo {
   border-radius: 0px;
   color: #ffffff;
   background-color: #d84207;
-  font-family: "HelveticaNeue-CondensedBold", "Montserrat", Helvetica, Arial, sans-serif;
+  font-family: "HelveticaNeue", "Montserrat", Helvetica, Arial, sans-serif;
   font-style: normal;
   font-size: 18px;
   text-transform: uppercase;
@@ -139,7 +139,7 @@ button.view-demo:hover, button.view-demo:focus, button.view-demo:active {
 .box {
   max-width: 175px;
   height: 100px;
-  background-color: #ede9e0;
+  background-color: #f8f8f8;
   border: 1px solid #ccc;
   position: relative;
   margin: 0 auto;
